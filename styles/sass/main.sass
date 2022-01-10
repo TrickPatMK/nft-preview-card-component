@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap')
+@import '_variables'
+@import '_mixins'
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+a
+  text-decoration: none
+
+body
+  font-family: $font
+  font-size: $font-size
+  background-color: $c-netral-bg
+
+.card
+  @include abs-center
+  border-radius: 10px
+  background: $c-netral-card
+  margin: auto
+  width: 330px
+  box-shadow: 0 10px 30px darken($c-netral-bg, 3%)
+
+  &-wrapper
+    margin: 0 auto
+    display: flex
+    flex-direction: column
+    gap: 1.5rem
+    padding: 20px
+
+  &-image
+    text-align: center
+    position: relative
+
+    figure
+      background-color: $c-primary-cyan
+      border-radius: 10px
+      height: 290px
+      img
+        width: 100%
+        border-radius: 10px
+        opacity: 1
+        transition: .5s ease
+
+    .overlay
+      @include abs-center
+      width: 100%
+      height: 100%
+      border-radius: 10px
+      opacity: 0
+      transition: .5s ease
+      img
+        @include abs-center
+        width: 20%
+        height: 20%
+
+    &:hover
+      cursor: pointer
+      figure img
+        opacity: .5
+      .overlay
+        opacity: 1
+
+  &-title h1
+    color: $c-white
+    font-size: 1.3rem
+    font-weight: 600
+    &:hover
+      color: $c-primary-cyan
+
+  &-text p
+    color: $c-primary-blue
+    font-size: 1rem
+    line-height: 1.5rem
+    font-weight: 300
+
+  &-price
+    display: flex
+    justify-content: space-between
+    font-size: .9rem
+
+    .price-amount
+      color: $c-primary-cyan
+      font-weight: 600
+      @include horizontal-align
+
+    .price-duration
+      color: $c-primary-blue
+      font-weight: 400
+      @include horizontal-align
+
+  &-profile
+    @include horizontal-align(1rem)
+    border-top: 1px solid $c-netral-line
+    padding-top: 14px
+
+    img
+      width: 2rem
+      border: 1px solid $c-white
+      border-radius: 20px
+
+    p
+      font-size: 1rem
+      font-weight: 300
+      color: $c-primary-blue
+      a.white
+        color: $c-white
+        &:hover
+          color: $c-primary-cyan
+          cursor: pointer
+
+.attribution
+  position: absolute
+  left: 0
+  right: 0
+  font-size: 11px
+  text-align: center
+  a
+    color: hsl(228, 45%, 44%)
+
+@import '_responsive'
